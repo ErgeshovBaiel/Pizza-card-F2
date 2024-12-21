@@ -1,35 +1,111 @@
-.p-card {
-    width: 280px;
-    border: 1px solid black;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
 }
+
+.container {
+    padding: 20px;
+}
+
 .pizza-wrap {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
-.sizes , 
-.crusts ,
+
+.p-card {
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.p-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.p-image img {
+    width: 100%;
+    height: auto;
+}
+
+.p-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.p-details h4 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.p-details p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sizes,
+.crusts,
 .p-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f5f5f4;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
     margin-top: 10px;
 }
-.sizes button ,
+
+.sizes button,
 .crusts button {
-    padding: 6px 20px ;
-    border-radius: 6px;
     width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
-.sizes button.active ,
+
+.sizes button:hover,
+.crusts button:hover {
+    background-color: #f59e0b;
+    color: #fff;
+}
+
+.sizes button.active,
 .crusts button.active {
-    background-color: #f5f5f4;
+    background-color: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
 }
+
 .p-footer button {
     background-color: #f59e0b;
     color: white;
-    padding: 6px 32px;
+    padding: 6px 20px;
     border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
+.p-footer button:hover {
+    background-color: #d97706;
+}
+
+.p-footer h4 {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
 }

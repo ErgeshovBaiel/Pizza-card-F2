@@ -15,8 +15,8 @@ const Header = () => {
             </div>
             <div className='search'>
                 <div>
-                    <span> <FiSearch /> </span>
-                    <input type="text" placeholder='Поиск...' />
+                    <span> <FiSearch className='text-xl text-gray-500 ml-5 mr-1 mb-1 ' /> </span>
+                    <input type="text" placeholder='Поиск...'  className='text-xl'/>
                 </div>
             </div>
             <div className='buttons'>

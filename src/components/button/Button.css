@@ -5,6 +5,7 @@
   background-color: #e7e5e4;
   font-size: 18px;
   transition:  background-color ease .15s;
+  cursor: pointer;
 }
 
 .btn.active {
