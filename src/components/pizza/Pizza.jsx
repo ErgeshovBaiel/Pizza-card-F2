@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import "./Pizza.css";
+import { CART_CONTEXT } from "../../context/CartContext";
 
 const Pizza = (props) => {
     const { pizzaData } = props;
+    const {setCart} = useContext(CART_CONTEXT)
+
+    const addToCart = (pizza) => {
+        setCart((oldPizza) => {
+            return [...oldPizza, pizza]
+        })
+    }
 
     const handleSizeClick = (e) => {
         const buttons = e.target.parentNode.querySelectorAll("button");
@@ -42,7 +51,9 @@ const Pizza = (props) => {
                     </div>
                     <div className="p-footer">
                         <h4>{item.price} сом</h4>
-                        <button>В корзину</button>
+                        <button onClick={()=> {
+                            addToCart(item)
+                        }}>В корзину</button>
                     </div>
                 </div>
             ))}

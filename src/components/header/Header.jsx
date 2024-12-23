@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import './Header.css'
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi2";
+import { CART_CONTEXT } from '../../context/CartContext';
+import {  Link } from "react-router";
 
 const Header = () => {
+    const { cart } = useContext(CART_CONTEXT)
     return (
         <header className='container'>
             <div className='logo'>
@@ -16,17 +20,19 @@ const Header = () => {
             <div className='search'>
                 <div>
                     <span> <FiSearch className='text-xl text-gray-500 ml-5 mr-1 mb-1 ' /> </span>
-                    <input type="text" placeholder='Поиск...'  className='text-xl'/>
+                    <input type="text" placeholder='Поиск...' className='text-xl' />
                 </div>
             </div>
             <div className='buttons'>
+                <Link to={"/cart"}>
                 <button style={{ display: 'flex', alignItems: 'center' }}>
                     <span style={{ fontSize: '20px' }}>
                         <HiOutlineShoppingCart />
                     </span>&nbsp;&nbsp;
                     <span>0 $</span>&nbsp;&nbsp; | &nbsp;&nbsp;
-                    <span> 0 </span>
+                    <span> {cart.length} </span>
                 </button>
+                </Link>
                 <button style={{ display: 'flex', alignItems: 'center' }}>
                     <span style={{ fontSize: '20px' }}><HiOutlineUser /></span>
                     Личный кабинет
