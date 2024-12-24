@@ -4,7 +4,6 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
 }
 
 .container {
@@ -13,26 +12,18 @@ body {
 
 .pizza-wrap {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .p-card {
     width: 280px;
-    border: 1px solid #ddd;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-.p-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
+
 
 .p-image img {
     width: 100%;
@@ -40,9 +31,8 @@ body {
 }
 
 .p-details {
-    height: 200px;
+    height: 180px;
     padding: 15px;
-    text-align: center;
 }
 
 .p-details h4 {
@@ -58,21 +48,26 @@ body {
 }
 
 .sizes,
-.crusts,
+.crusts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
 .p-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: #f9f9f9;
     margin-top: 10px;
 }
-
 .sizes button,
 .crusts button {
     width: 100%;
     padding: 6px 12px;
-    border: 1px solid #ddd;
+    box-shadow: 0px 2px 6px rgb(207, 206, 206);
     border-radius: 6px;
     background-color: #fff;
     cursor: pointer;
@@ -111,3 +106,61 @@ body {
     color: #333;
     font-weight: 700;
 }
+.p-footer button {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.p-footer button.added {
+    background-color: #f59e0b;
+    cursor: default;
+}
+
+.p-footer button.added:hover {
+    background-color: #f59e0b;
+}
+.p-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 8px; 
+}
+
+.p-footer button svg {
+    order: 1; 
+}
+
+.p-footer button span {
+    order: 0; 
+}
+.p-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px; 
+}
+
+.p-footer button svg {
+    font-size: 15.5px; 
+    stroke-width: 1; 
+}
+
+.sizes button.active,
+.crusts button.active {
+    background-color: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
+}
+
+button.active {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  button:disabled {
+    font-size: 20px;
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
