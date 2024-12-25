@@ -41,14 +41,14 @@ const App = () => {
   const [pizzaData, setPizzaData] = useState([])
 
   useEffect(() => {
-    const url = 'https://run.mocky.io/v3/592376c2-1f1d-47ef-b487-711bd84b802c'
+    const url = 'https://673c34cc96b8dcd5f3f8e777.mockapi.io/api/v1/pizza2'
     fetch(url)
       .then(response => {
         return response.json()
       })
       .then(data => {
         console.log(data)
-        setPizzaData(data.menu)
+        setPizzaData(data[0].menu)
       })
       .catch(error => {})
   }, [])
@@ -70,7 +70,7 @@ const App = () => {
           )
         })}
       </div>
-      <Pizza pizzaData={pizzaData} />
+      <Pizza pizzaData={pizzaData}  activeBtn={activeBtn} />
     </div>
   )
 }

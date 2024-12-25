@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CART_CONTEXT } from '../../context/CartContext';
 import { FiCheck, FiPlus, FiTrash2 } from 'react-icons/fi';
-import './Cart.css'; // CSS стили
+import './Cart.css';
 import Header from '../../components/header/Header';
 
 const Cart = () => {
@@ -18,9 +18,6 @@ const Cart = () => {
           <p className="empty-cart-subtext text-center text-[14px] font-light text-gray-500 mt-1">
             Пора добавлять пиццы в корзину и оформлять заказ
           </p>
-          <button className="clear-cart-btn" onClick={clearCart}>
-            <FiTrash2 className="clear-cart-icon" /> Корзинаны тазалоо
-          </button>
         </div>
       ) : (
         <div className="cart-items">

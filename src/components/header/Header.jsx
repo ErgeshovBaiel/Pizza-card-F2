@@ -13,11 +13,15 @@ const Header = () => {
   return (
     <header className="container">
       <div className="logo">
+        <Link to="/">
+        <div className='flex gap-6 font-normal'>
         <img src="https://react-pizza-v2-psi.vercel.app/assets/img/logo.svg" alt="" />
         <div>
-          <h4>React Pizza</h4>
-          <p>лучшая пицца в вашем городе</p>
+          <h4 className='text-xl font-semibold'>React Pizza</h4>
+          <p className='text-slate-700'>лучшая пицца в вашем городе</p>
         </div>
+        </div>
+        </Link>
       </div>
       <div className="search">
         <div>

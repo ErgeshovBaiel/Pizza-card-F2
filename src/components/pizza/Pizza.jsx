@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa6";
 
 
-const Pizza = ({ pizzaData }) => {
+const Pizza = ({ pizzaData  , activeBtn}) => {
     const { cart, setCart } = useContext(CART_CONTEXT);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [addedPizza, setAddedPizza] = useState({});
@@ -37,9 +37,19 @@ const Pizza = ({ pizzaData }) => {
             },
         }));
     };
+    
+
+    let arr = []
+
+    if(activeBtn !== "Все"){
+        arr = pizzaData.filter(item => item.category === activeBtn )
+    }else {
+        arr = pizzaData
+    }
+
     return (
         <div className="container pizza-wrap">
-            {pizzaData.map((item) => (
+            {arr.map((item) => (
                 <div className="p-card" key={item.name}>
                     <div className="p-image">
                         <img src={item.image} alt={item.name} />
