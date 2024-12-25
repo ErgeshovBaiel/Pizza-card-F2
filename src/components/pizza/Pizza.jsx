@@ -39,13 +39,21 @@ const Pizza = ({ pizzaData  , activeBtn}) => {
     };
     
 
+    let name = ""
     let arr = []
-
+    
+    if(name){
+        arr = pizzaData.filter(item => item.name.includes(name) )
+    }else {
+        arr = pizzaData
+    }
+    
     if(activeBtn !== "Все"){
         arr = pizzaData.filter(item => item.category === activeBtn )
     }else {
         arr = pizzaData
     }
+    
 
     return (
         <div className="container pizza-wrap">
