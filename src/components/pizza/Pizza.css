@@ -7,13 +7,12 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 10px;
 }
 
 .pizza-wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .p-card {
@@ -163,4 +162,20 @@ button.active {
     background-color: #ddd;
     cursor: not-allowed;
   }
-  
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+}
+
+.pizza-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}

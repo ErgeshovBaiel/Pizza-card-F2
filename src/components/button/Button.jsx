@@ -4,12 +4,14 @@ const Button = props => {
   const { activeBtn, onClick } = props
 
   return (
+    <div className='mt-24'>
         <button
           onClick={onClick}
           className={activeBtn === props.name ? 'btn active' : 'btn'}
         >
           {props.name}
         </button>
+    </div>
   )
 }
 
