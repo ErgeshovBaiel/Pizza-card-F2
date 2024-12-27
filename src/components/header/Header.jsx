@@ -10,6 +10,10 @@ const Header = ({ onFilter }) => {
   const { cart } = useContext(CART_CONTEXT);
   const [pizzaName, setPizzaName] = useState('');
 
+  const total = cart.reduce((a,b) => {
+    return a + parseInt(b.price,10)
+  },0)
+
   const onChange = (e) => {
     const text = e.target.value;
     setPizzaName(text);
@@ -20,7 +24,7 @@ const Header = ({ onFilter }) => {
     <div className='mt-1 fixed ml-[150px]'> 
     <header className="container">
       <div className="logo">
-        <Link to="/">
+        <Link to="/"> 
           <div className="flex gap-6 font-normal">
             <img
               src="https://react-pizza-v2-psi.vercel.app/assets/img/logo.svg"
@@ -54,7 +58,7 @@ const Header = ({ onFilter }) => {
               <HiOutlineShoppingCart className="text-xl" />
             </span>
             &nbsp;&nbsp;
-            <span>0 $</span>&nbsp;&nbsp; | &nbsp;&nbsp;
+            <span>{total} $</span>&nbsp;&nbsp; | &nbsp;&nbsp;
             <span>{cart.length}</span>
           </button>
         </Link>

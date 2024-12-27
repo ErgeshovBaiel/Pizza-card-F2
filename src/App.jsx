@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import { useEffect, useState } from 'react';
 import './App.css';
 import Pizza from './components/pizza/Pizza';
+import { ToastContainer, toast } from 'react-toastify';
 
 const buttons = [
   { id: 1, name: 'Все' },
@@ -39,6 +40,7 @@ const App = () => {
 
   return (
     <div>
+      <ToastContainer />
       <Header onFilter={filterPizzas} />
       <div className="container filter-buttons">
         {buttons.map((btn) => (
