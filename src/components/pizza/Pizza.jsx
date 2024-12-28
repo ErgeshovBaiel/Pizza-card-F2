@@ -8,11 +8,12 @@ import { toast } from 'react-toastify'
 const Pizza = ({ pizzaData, activeBtn }) => {
   const { cart, setCart } = useContext(CART_CONTEXT)
   const [selectedOptions, setSelectedOptions] = useState({})
-  const [addedPizza, setAddedPizza] = useState({})
+  const [addedPizza, setAddedPizza] = useState({}) // Пиццаны кошуу үчүн күй
 
   const addToCart = pizza => {
     const selectedSize = selectedOptions[pizza.name]?.size || pizza.sizes[0]
     const selectedCrust = selectedOptions[pizza.name]?.crust || pizza.crusts[0]
+    
     toast.success('Товар успешно добавлен в корзину')
 
     const pizzaToCart = {
@@ -22,23 +23,18 @@ const Pizza = ({ pizzaData, activeBtn }) => {
       crust: selectedCrust
     }
 
+    // Корзинаны жаңыртуу
     setCart(prev => {
       const arr = [...prev, pizzaToCart]
       localStorage.setItem('cart', JSON.stringify(arr))
       return arr
     })
 
-    if (
-      !cart.some(
-        p =>
-          p.name === pizza.name &&
-          p.size === selectedSize &&
-          p.crust === selectedCrust
-      )
-    ) {
-
-      return products
-    }
+    // Пицца кошулганы текшерүү
+    setAddedPizza(prev => ({
+      ...prev,
+      [pizza.name]: true
+    }))
   }
 
   const handleOptionChange = (pizzaName, optionType, value) => {
@@ -76,9 +72,7 @@ const Pizza = ({ pizzaData, activeBtn }) => {
               {item.sizes.map(s => (
                 <button
                   key={s}
-                  className={
-                    selectedOptions[item.name]?.size === s ? 'active' : ''
-                  }
+                  className={selectedOptions[item.name]?.size === s ? 'active' : ''}
                   onClick={() => handleOptionChange(item.name, 'size', s)}
                 >
                   {s}
@@ -89,9 +83,7 @@ const Pizza = ({ pizzaData, activeBtn }) => {
               {item.crusts.map(c => (
                 <button
                   key={c}
-                  className={
-                    selectedOptions[item.name]?.crust === c ? 'active' : ''
-                  }
+                  className={selectedOptions[item.name]?.crust === c ? 'active' : ''}
                   onClick={() => handleOptionChange(item.name, 'crust', c)}
                 >
                   {c}
@@ -100,7 +92,7 @@ const Pizza = ({ pizzaData, activeBtn }) => {
             </div>
             <div className='p-footer'>
               <h4>{item.price} сом</h4>
-              <button onClick={() => addToCart(item)}>
+              <button onClick={() => addToCart(item)} className={addedPizza[item.name] ? 'added' : ''}>
                 {addedPizza[item.name] ? (
                   <FaCheck style={{ fontSize: '15px' }} />
                 ) : (

@@ -1,7 +1,4 @@
-.container {
-    background-color: white;
-    margin-top: -2px;
-}
+
 .logo {
     display: flex;  
     align-items: center;
@@ -11,11 +8,10 @@
     text-transform: uppercase;
 }
 .search div {
-    border: 1px solid rgb(94, 92, 92);
+    border: 1px solid rgb(151, 151, 151);
     border-radius: 10px;
     display: flex;
     align-items: center;
-    overflow: hidden;
     margin-left: 100px;
 }
 .search input {

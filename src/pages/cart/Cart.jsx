@@ -6,6 +6,9 @@ import Header from '../../components/header/Header';
 
 const Cart = () => {
   const { cart, clearCart, removeItem, increaseQuantity, decreaseQuantity } = useContext(CART_CONTEXT);
+  const total = cart.reduce((a, b) => {
+    return a + parseInt(b.price, 10);
+  }, 0);
 
   return (
     <div className="cart-container">
@@ -23,7 +26,11 @@ const Cart = () => {
         <div className="cart-items">
           {cart.map((item, index) => (
             <div key={index} className="cart-item">
-              <img src={item.image} alt={item.name} className="cart-item-image" />
+              <img
+                src={item.image || '/default-image.jpg'}
+                alt={item.name}
+                className="cart-item-image"
+              />
               <div className="cart-item-details">
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
@@ -37,7 +44,7 @@ const Cart = () => {
                   </button>
                 </div>
                 <div className="cart-item-footer">
-                  <span>{item.price * item.quantity} ₴</span>
+                  <span>{item.price} ₴</span>
                   <button className="remove-btn" onClick={() => removeItem(item.id)}>
                     <FiTrash2 /> Удалить
                   </button>
@@ -52,5 +59,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
 
 

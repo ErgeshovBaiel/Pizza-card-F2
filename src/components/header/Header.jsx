@@ -21,7 +21,7 @@ const Header = ({ onFilter }) => {
   };
 
   return (
-    <div className='mt-1 fixed ml-[150px]'> 
+    <div> 
     <header className="container">
       <div className="logo">
         <Link to="/"> 

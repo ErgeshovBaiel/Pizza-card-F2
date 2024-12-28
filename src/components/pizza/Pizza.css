@@ -179,3 +179,29 @@ button.active {
     justify-content: space-between;
     gap: 20px;
 }
+.p-footer button {
+    background-color: #f59e0b;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.p-footer button.added {
+    background-color: #f59e0b; 
+    cursor: default;
+}
+
+.p-footer button.added:hover {
+    background-color: #f59e0b;
+}
+
+.p-footer button svg {
+    order: 1;
+}
+
+.p-footer button span {
+    order: 0;
+}
